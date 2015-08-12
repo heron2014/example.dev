@@ -1,0 +1,44 @@
+mysql_root_password: devpw
+
+web_user: vagrant
+
+wordpress_sites:
+  example.com:
+    site_hosts:
+      - example.dev
+    local_path: '../site' # path targeting local Bedrock project directory (relative to Ansible root)
+    repo: git@github.com:roots/bedrock.git
+    site_install: true
+    site_title: Roots Example Project
+    admin_user: admin
+    admin_password: admin
+    admin_email: admin@roots-example-project.dev
+    multisite:
+      enabled: false
+      subdomains: false
+    ssl:
+      enabled: false
+    system_cron: true
+    env:
+      wp_home: http://example.dev
+      wp_siteurl: http://example.dev/wp
+      wp_env: development
+      db_name: bedrock
+      db_user: anita
+      db_password: bedrock
+
+php_error_reporting: 'E_ALL'
+php_display_errors: 'On'
+php_display_startup_errors: 'On'
+php_track_errors: 'On'
+php_mysqlnd_collect_memory_statistics: 'On'
+php_opcache_enable: 0
+
+xdebug_install: false
+php_xdebug_remote_enable: true
+php_xdebug_remote_connect_back: true
+php_xdebug_remote_host: localhost
+php_xdebug_remote_port: 9000
+php_xdebug_remote_log: /tmp/xdebug.log
+php_xdebug_idekey: XDEBUG
+php_max_nesting_level: 200
